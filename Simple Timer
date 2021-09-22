@@ -1,0 +1,14 @@
+const beep = function() {
+  process.stdout.write('\x07');
+};
+
+let myArgs = process.argv.slice(' ');
+
+if (myArgs) {
+  for (let t of myArgs) {
+    let time = parseInt(t);
+    if (time !== isNaN && time > 0) {
+      setTimeout(()=>beep(), time * 1000);
+    }
+  }
+}
